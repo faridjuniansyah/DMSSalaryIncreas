@@ -44,8 +44,15 @@
                                     </div>
                                 </div>
                                 <br />
-                                <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-                                <br />
+                                <form id="demo-form" class="mt-2" data-parsley-validate method="POST" action="{{ route('personel.update')}}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <!-- <div class="col-sm-12"> -->
+                                    <input class="btn btn-primary w-100" type="file" name="foto" />
+                                    <!-- </div> -->
+
+                                    <!-- <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a> -->
+                                    <br />
 
                             </div>
                             <div class="col-md-9 col-sm-9 ">
@@ -55,63 +62,63 @@
                                         <h2>Personel BIO</h2>
                                     </div>
                                 </div>
-                                <form id="demo-form" class="mt-2" data-parsley-validate>
-                                    <div class="input_dinamis col-md-12 col-sm-12">
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="fullname">Nama Lengkap * :</label>
-                                            <input type="text" id="fullname" class="form-control" name="fullname" required />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="email">Email * :</label>
-                                            <input type="email" id="email" class="form-control" name="email" data-parsley-trigger="change" required />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="email">Tempat Lahir :</label>
-                                            <input type="text" id="ttl" class="form-control" name="ttl" data-parsley-trigger="change" required />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="tgl">Tanggal Lahir :</label>
-                                            <input type="date" id="tgl" class="form-control" name="tgl" data-parsley-trigger="change" required />
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <label for="fullname">Jenis Kelamin * :</label>
-                                            <select class="form-control" required>
-                                                <option value="">Choose..</option>
-                                                <option value="laki-laki">Laki - laki</option>
-                                                <option value="perempuan">Perempuan</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <label for="fullname">Suku * :</label>
-                                            <input type="text" id="fullname" class="form-control" name="fullname" required />
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <label for="fullname">Agama * :</label>
-                                            <input type="text" id="fullname" class="form-control" name="fullname" required />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="fullname">NRP * :</label>
-                                            <input type="text" id="fullname" class="form-control" name="fullname" required />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <label for="fullname">Status * :</label>
-                                            <select class="form-control" required>
-                                                <option value="">Choose..</option>
-                                                <option value="aktif">Aktif</option>
-                                                <option value="tidak aktif">Tidak Aktif</option>
-                                            </select>
+
+                                <div class="input_dinamis col-md-12 col-sm-12">
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="name">Nama Lengkap * :</label>
+                                        <input type="text" id="name" class="form-control" name="name" value="{{$personel->name}}" required />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="email">Email * :</label>
+                                        <input type="email" id="email" class="form-control" name="email" value="{{$user->email}}" data-parsley-trigger="change" required />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="tempat_lahir">Tempat Lahir :</label>
+                                        <input type="text" id="tempat_lahir" class="form-control" name="tempat_lahir" value="{{$personel->tempat_lahir}}" data-parsley-trigger="change" required />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="tgl">Tanggal Lahir :</label>
+                                        <input type="date" id="tgl_lahir" class="form-control" name="tgl_lahir" value="{{$personel->tgl_lahir}}" data-parsley-trigger="change" required />
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label for="fullname">Jenis Kelamin * :</label>
+                                        <select name="gender" class="form-control" required>
+                                            <option value="">Choose..</option>
+                                            <option value="laki-laki" {{ $personel->gender == 'laki-laki' ? 'selected' : '' }}>Laki - laki</option>
+                                            <option value="perempuan" {{ $personel->gender == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label for="fullname">Suku * :</label>
+                                        <input type="text" id="suku" class="form-control" name="suku" value="{{$personel->suku}}" required />
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label for="fullname">Agama * :</label>
+                                        <input type="text" id="agama" class="form-control" name="agama" value="{{$personel->agama}}" required />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="fullname">NRP * :</label>
+                                        <input type="text" id="nrp" class="form-control" name="nrp" value="{{$personel->nrp}}" required />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="fullname">Status * :</label>
+                                        <select name="status" class="form-control" required>
+                                            <option value="">Choose..</option>
+                                            <option value="Aktif" {{ $personel->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                            <option value="Tidak Aktif" {{ $personel->status == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="ln_solid"></div>
+                                    <div class="item form-group">
+                                        <div class="col-md-6 col-sm-6 offset-md-3">
+                                            <button class="btn btn-primary" type="button">Cancel</button>
+                                            <!-- <button class="btn btn-primary" type="reset">Reset</button> -->
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-12">
-                                        <div class="ln_solid"></div>
-                                        <div class="item form-group">
-                                            <div class="col-md-6 col-sm-6 offset-md-3">
-                                                <button class="btn btn-primary" type="button">Cancel</button>
-                                                <button class="btn btn-primary" type="reset">Reset</button>
-                                                <button type="submit" class="btn btn-success">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
                                 </form>
                             </div>
                         </div>

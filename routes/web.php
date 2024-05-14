@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/profile/bahasa', [ProfileController::class, 'bahasaShow'])->name('bahasa.show');
     Route::post('/profile/pendidikan-update', [ProfileController::class, 'pendidikanUpdate'])->name('pendidikan.update');;
     Route::post('/profile/bahasa-update', [ProfileController::class, 'bahasaUpdate'])->name('bahasa.update');
+    Route::get('/profile/data-diri', [ProfileController::class, 'personelShow'])->name('personel.datadiri');
+    Route::put('/profile/personel-update', [ProfileController::class, 'personelUpdate'])->name('personel.update');
 
     Route::get('/', function () {
         return view('home');
@@ -37,9 +39,9 @@ Route::group(['middleware' => ['auth']], function() {
     //     return view('profile.index');
     // });
     
-    Route::get('/profile/data-diri', function () {
-        return view('profile.datadiri');
-    });
+    // Route::get('/profile/data-diri', function () {
+    //     return view('profile.datadiri');
+    // });
     // Route::get('/profile/pendidikan', function () {
     //     return view('profile.pendidikan');
     // });
