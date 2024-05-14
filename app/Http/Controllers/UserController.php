@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Personel;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
@@ -50,7 +51,6 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
             'roles' => 'required'
         ]);
 
@@ -59,6 +59,12 @@ class UserController extends Controller
 
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
+
+        
+        $Personenl = new Personel();
+        $Personenl->name = $request->name;
+        $Personenl->users_id = $user->id;
+        $Personenl->save();
 
         return redirect()->route('users.index')
             ->with('success', 'User created successfully');

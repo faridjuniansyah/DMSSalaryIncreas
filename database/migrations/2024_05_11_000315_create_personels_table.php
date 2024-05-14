@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('personels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('agama');
-            $table->string('tempat_lahir');
-            $table->date('tgl_lahir');
-            $table->string('suku');
-            $table->string('status');
+            $table->string('agama')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->string('suku')->nullable();
+            $table->string('status')->nullable();
             $table->bigInteger('users_id')->unsigned();
 
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');

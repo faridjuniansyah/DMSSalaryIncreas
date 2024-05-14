@@ -29,6 +29,7 @@
   @yield('customCss')
   <!-- Custom Theme Style -->
   <link href="{{url('assets/build/css/custom.min.css')}}" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body class="nav-md">
@@ -68,13 +69,14 @@
 
                 <li><a><i class="fa fa-table"></i> Profile <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="tables.html">My Profile</a></li>
-                    <li><a href="tables.html">Data Diri</a></li>
-                    <li><a href="tables_dynamic.html">Pendidikan</a></li>
-                    <li><a href="page_500.html">Kemampuan Bahasa</a></li>
+                    <li><a href="/profile">My Profile</a></li>
+                    <li><a href="/profile/data-diri">Data Diri</a></li>
+                    <li><a href="/profile/pendidikan">Pendidikan</a></li>
+                    <li><a href="/profile/bahasa">Kemampuan Bahasa</a></li>
                     <li><a href="page_500.html">Tanda Kehormatan</a></li>
                     <li><a href="page_500.html">Pengembangan Pelatihan</a></li>
-                    <li><a href="plain_page.html">Penugasan Luar</a></li>
+                    <li><a href="/profile/penugasan">Penugasan Luar</a></li>
+                    <li><a href="/profile/penugasan">Pangkat</a></li>
                   </ul>
                 </li>
               </ul>
@@ -90,11 +92,8 @@
                 </li>
                 <li><a><i class="fa fa-windows"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="page_403.html">Pendidikan</a></li>
-                    <li><a href="page_404.html">Personil</a></li>
                     <li><a href="plain_page.html">Gaji</a></li>
                     <li><a href="plain_page.html">Jabatan</a></li>
-                    <li><a href="login.html">Login Page</a></li>
                   </ul>
                 </li>
               </ul>
@@ -157,6 +156,8 @@
       <!-- page content -->
       <div class="right_col" role="main">
         @yield('content')
+        @include('sweetalert::alert')
+
       </div>
       <!-- /page content -->
 

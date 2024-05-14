@@ -39,7 +39,7 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         <li>
                             @can('create-role')
-                            <a class="btn btn-success btn-flat" href="{{ route('roles.create') }}"><span class="fa fa-user-plus"> </span> Add</a>
+                            <a class="btn btn-success text-white btn-flat" href="{{ route('users.create') }}"><span class="fa fa-user-plus"> </span> Add</a>
                             @endcan
                         </li>
                     </ul>
@@ -89,7 +89,7 @@
 
                                                     @can('delete-user')
                                                     @if (Auth::user()->id!=$user->id)
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this user?');"><i class="fa fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this user?');"><i class="fa fa-trash"></i></button>
                                                     @endif
                                                     @endcan
                                                     @endif

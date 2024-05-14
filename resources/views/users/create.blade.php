@@ -30,7 +30,7 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         <li>
                             @can('create-role')
-                            <a class="btn btn-success btn-flat" href="{{ route('users.index') }}"></span> &larr; Back</a>
+                            <a class="btn btn-primary text-white btn-flat" href="{{ route('users.index') }}"></span> &larr; Back</a>
                             @endcan
                         </li>
                     </ul>
@@ -69,14 +69,7 @@
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Comfirm Password <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
-                            </div>
-                        </div>
+                        </div>                        
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="ROle">Role <span class="required">*</span>
                             </label>
@@ -111,7 +104,7 @@
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
                                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-                                <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Add Role">
+                                <input type="submit" class="col-md-3 offset-md-5 btn btn-success" value="Add Role">
                             </div>
                         </div>
 

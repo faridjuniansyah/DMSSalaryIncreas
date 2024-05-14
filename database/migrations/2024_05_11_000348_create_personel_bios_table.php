@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('personel_bios', function (Blueprint $table) {
             $table->id();
-            $table->string('tingkat');
-            $table->string('nama');
-            $table->string('tahun');
+            $table->string('tingkat')->nullable();
+            $table->string('nama')->nullable();
+            $table->string('tahun')->nullable();
             $table->bigInteger('personels_id')->unsigned();
 
             $table->foreign('personels_id')->references('id')->on('personels')->onDelete('cascade');

@@ -16,7 +16,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Pendidikan<small></small></h3>
+            <h3>Kemampuan Bahasa<small></small></h3>
         </div>
 
         <div class="title_right">
@@ -37,7 +37,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Pedidikan <small></small></h2>
+                    <h2>Form Kemampuan Bahasa <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -47,56 +47,56 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('pendidikan.update')}}">
+                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('bahasa.update')}}">
                                 @csrf
-
                                 <div class="input_dinamis col-md-12 col-sm-12">
-                                    @forelse ($pendidikan as $pendidikans )
+                                    @forelse ($bahasa as $bahasas )
                                     <div class="col-sm-12">
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="fullname">Tingkat :</label>
-                                            <input type="text" id="tingkat" class="form-control" name="tingkat[]" value="{{$pendidikans->tingkat}}" required />
+                                        <div class="col-md-34 col-sm-4">
+                                            <label for="fullname">Bahasa :</label>
+                                            <input type="text" id="bahasa" class="form-control" name="bahasa[]" value="{{$bahasas->bahasa}}" required />
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="fullname">Nama Institusi :</label>
-                                            <input type="text" id="nama_institusi" class="form-control" name="nama_institusi[]" value="{{$pendidikans->nama_institusi}}" required />
+                                        <div class="col-md-4 col-sm-4">
+                                            <label for="fullname">Status :</label>
+                                            <select name="status[]" class="form-control" required>
+                                                <option value="">Choose..</option>
+                                                <option value="Aktif" {{ $bahasas->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                                <option value="Tidak Aktif" {{ $bahasas->status == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="fullname">Tahun Lulus :</label>
-                                            <input type="text" id="tahun" class="form-control" name="tahun[]" value="{{$pendidikans->tahun}}" required />
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 mt-4">
+                                        <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
                                             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
                                         </div>
                                     </div>
                                     @empty
                                     <div class="col-sm-12">
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="tingkat">Tingkat:</label>
-                                            <input type="text" class="form-control" name="tingkat[]" required>
+                                        <div class="col-md-34 col-sm-4">
+                                            <label for="fullname">Bahasa :</label>
+                                            <input type="text" id="bahasa" class="form-control" name="bahasa[]" required />
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="nama_institusi">Nama Institusi:</label>
-                                            <input type="text" class="form-control" name="nama_institusi[]" required>
+                                        <div class="col-md-4 col-sm-4">
+                                            <label for="fullname">Status :</label>
+                                            <select name="status[]" class="form-control" required>
+                                                <option value="">Choose..</option>
+                                                <option value="aktif">Aktif</option>
+                                                <option value="tidak aktif">Tidak Aktif</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <label for="tahun">Tahun Lulus:</label>
-                                            <input type="text" class="form-control" name="tahun[]" required>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 mt-4">
+                                        <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
                                             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
                                         </div>
                                     </div>
-                                    @endforelse
                                 </div>
+
+                                @endforelse
                                 <div class="col-sm-12 col-md-12">
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 offset-md-3">
                                             <button class="btn btn-primary" type="reset">Reset</button>
-                                            <button type="submit" class="btn btn-success">Update</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -123,18 +123,18 @@
 
         // Isi elemen div baru dengan input yang sama seperti sebelumnya
         newFormRow.innerHTML = `
-            <div class="col-md-3 col-sm-3">
-                <label for="tingkat[]">Tingkat :</label>
-                <input type="text" class="form-control" name="tingkat[]" required />
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <label for="institusi">Nama Institusi :</label>
-                <input type="text" class="form-control" name="nama_institusi[]" required />
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <label for="tahun">Tahun Lulus :</label>
-                <input type="text" class="form-control" name="tahun[]" required />
-            </div>
+            <div class="col-md-4 col-sm-4">
+                <label for="fullname">Bahasa :</label>
+                    <input type="text" id="bahasa" class="form-control" name="bahasa[]" required />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <label for="fullname">Status :</label>
+                        <select name="status[]" class="form-control" required>
+                            <option value="">Choose..</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
+                        </select>
+                </div>
             <div class="col-md-3 col-sm-3 mt-4">
                 <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
             </div>

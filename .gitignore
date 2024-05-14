@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
-=======
 /vendor/
 node_modules/
 npm-debug.log
@@ -41,4 +21,3 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
->>>>>>> e5ca9d175aa96655575cc2fd8f465fcca2b1a0b1
