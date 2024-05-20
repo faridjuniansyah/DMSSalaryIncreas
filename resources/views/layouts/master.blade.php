@@ -63,22 +63,22 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a href=""><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a></li>
-                <li><a href=""><i class="fa fa-home"></i> Pengajuan<span class="fa fa-chevron-down"></span></a></li>
-                <li><a href=""><i class="fa fa-list-ul"></i> List Pengajuan <span class="fa fa-chevron-down"></span></a></li>
+                <li><a href="/pengajuan"><i class="fa fa-home"></i> Pengajuan</a></li>
+                <li><a href="/pengajuan/list"><i class="fa fa-list-ul"></i> List Pengajuan</a></li>
                 <li><a href=""><i class="fa fa-home"></i> Pengumuman <span class="fa fa-chevron-down"></span></a></li>
 
-                <li><a><i class="fa fa-table"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                <!-- <li><a><i class="fa fa-table"></i> Profile <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/profile">My Profile</a></li>
+                    <li><a href="{{route('myprofile')}}">My Profile</a></li>
                     <li><a href="/profile/data-diri">Data Diri</a></li>
                     <li><a href="/profile/pendidikan">Pendidikan</a></li>
                     <li><a href="/profile/bahasa">Kemampuan Bahasa</a></li>
-                    <li><a href="page_500.html">Tanda Kehormatan</a></li>
-                    <li><a href="page_500.html">Pengembangan Pelatihan</a></li>
-                    <li><a href="/profile/penugasan">Penugasan Luar</a></li>
+                    <li><a href="{{ route('profile.tandakehormatan')}}">Tanda Kehormatan</a></li>
+                    <li><a href="{{ route('pelatihan.show')}}">Pengembangan Pelatihan</a></li>
+                    <li><a href="{{ route('profile.penugasan')}}">Penugasan Luar</a></li>
                     <li><a href="/profile/penugasan">Pangkat</a></li>
                   </ul>
-                </li>
+                </li> -->
               </ul>
             </div>
             <div class="menu_section">
@@ -92,7 +92,7 @@
                 </li>
                 <li><a><i class="fa fa-windows"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="plain_page.html">Gaji</a></li>
+                    <li><a href="/gaji">Gaji</a></li>
                     <li><a href="plain_page.html">Jabatan</a></li>
                   </ul>
                 </li>
@@ -134,7 +134,7 @@
                   <img src="{{url('assets/images/img.jpg')}}" alt="">John Doe
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="javascript:;"> Profile</a>
+                  <a class="dropdown-item" href="{{route('myprofile')}}"> Profile</a>
                   <a class="dropdown-item" href="javascript:;">
                     <span>Ubah Password</span>
                   </a>
@@ -157,7 +157,7 @@
       <div class="right_col" role="main">
         @yield('content')
         @include('sweetalert::alert')
-
+ 
       </div>
       <!-- /page content -->
 

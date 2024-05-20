@@ -40,7 +40,7 @@
                                 <div class="profile_img">
                                     <div id="crop-avatar">
                                         <!-- Current avatar -->
-                                        <img class="img-responsive avatar-view" src="{{url('assets/images/picture.jpg')}}" alt="Avatar" title="Change the avatar">
+                                        <img class="img-responsive avatar-view" src="{{ $personel->foto}}" alt="Avatar" title="Change the avatar">
                                     </div>
                                 </div>
                                 <!-- <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
@@ -49,10 +49,9 @@
                             </div>
                             <div class="col-md-9 col-sm-9 ">
 
-                                <div class="profile_title ">
-                                    <div class="col-md-6">
-                                    </div>
-                                    <h2>Data Diri</h2>
+                                <div class="profile_title " style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h2 class="mr-2">Data Diri</h2>
+                                    <a class="btn btn-secondary btn-sm" href="/profile/data-diri"><i class="fa fa-pencil"></i></a>
                                 </div>
                                 <div class="form-group row mt-2">
                                     <label class="control-label col-md-3 col-sm-3 ">Nama Lengkap</label>
@@ -63,11 +62,11 @@
                                 <div class="form-group row ">
                                     <label class="control-label col-md-3 col-sm-3 ">Pangkat/NRP</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <label class="control-label">: BRIPTU/99060156</label>
+                                        <label class="control-label">: BRIPTU / {{$user->nrp}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <label class="control-label col-md-3 col-sm-3 ">Jabatan/TMT</label>
+                                    <label class="control-label col-md-3 col-sm-3 ">Jabatan / TMT</label>
                                     <div class="col-md-9 col-sm-9 ">
                                         <label class="control-label">: RO SDM POLDA JABAR (2024-04-01)</label>
                                     </div>
@@ -99,14 +98,15 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12">
-                            <div class="col-sm-3 col-md-3">
+                            <div class="col-sm-6 col-md-6">
                                 <div class="profile_title ">
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                         <h6>Pendidikan Kepolisian</h6>
+                                        <a class="btn btn-secondary btn-sm" href="/profile/pendidikan"><i class="fa fa-pencil"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <thead>
                                             <tr>
                                                 <th>Tingkat</th>
@@ -114,22 +114,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($pendidikan as $pendidikans )
                                             <tr>
-                                                <td>DIKTUKBA</td>
-                                                <td>2018</td>
+                                                <td>{{$pendidikans->tingkat}}</td>
+                                                <td>{{$pendidikans->tahun}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-sm-5 col-md-5">
+                            <div class="col-sm-6 col-md-6">
                                 <div class="profile_title ">
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                         <h6>Pendidikan Umum</h6>
+                                        <a class="btn btn-secondary btn-sm" href="{{route('personel.bio')}}"><i class="fa fa-pencil"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <thead>
                                             <tr>
                                                 <th>Tingkat</th>
@@ -138,25 +141,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($pendidikan as $pendidikans )
+                                            @foreach ($personelBio as $bio )
                                             <tr>
-                                                <td>{{$pendidikans->tingkat}}</td>
-                                                <td>{{$pendidikans->nama_institusi}}</td>
-                                                <td>{{$pendidikans->tahun}}</td>
+                                                <td>{{$bio->tingkat}}</td>
+                                                <td>{{$bio->nama}}</td>
+                                                <td>{{$bio->tahun}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4">
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-6 col-md-6">
                                 <div class="profile_title ">
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                         <h6>Riwayat Pangkat</h6>
+                                        <!-- <a class="btn btn-secondary btn-sm" href="/profile/pendidikan"><i class="fa fa-pencil"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <table class="table table-striped">
+                                    <table class="table ">
                                         <thead>
                                             <tr>
                                                 <th>Pangkat</th>
@@ -172,17 +178,18 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                            <!-- </div> -->
 
-                        <div class="col-sm-12 col-md-12">
-                            <div class="col-sm-8 col-md-8">
+
+                            <div class="col-sm-6 col-md-6">
                                 <div class="profile_title ">
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                         <h6>Riawayat Jabatan</h6>
+                                        <a class="btn btn-secondary btn-sm" href="/profile/pendidikan"><i class="fa fa-pencil"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <thead>
                                             <tr>
                                                 <th>Jabatan</th>
@@ -198,15 +205,18 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4">
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-6 col-md-6">
                                 <div class="col-sm-12 col-md-12">
                                     <div class="profile_title ">
-                                        <div class="col-md-12 col-sm-12">
+                                        <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                             <h6>Tanda Kehormatan</h6>
+                                            <a class="btn btn-secondary btn-sm" href="{{ route('profile.tandakehormatan')}}"><i class="fa fa-pencil"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
-                                        <table class="table table-striped">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Tanda Kehormatan</th>
@@ -224,14 +234,17 @@
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
                                 <div class="col-sm-12 col-md-12">
                                     <div class="profile_title ">
-                                        <div class="col-md-12 col-sm-12">
+                                        <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
                                             <h6>Kemampuan Bahasa</h6>
+                                            <a class="btn btn-secondary btn-sm" href="/profile/bahasa"><i class="fa fa-pencil"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
-                                        <table class="table table-striped">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Bahasa</th>
@@ -251,11 +264,59 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- </div> -->
                         <div class="col-sm-12 col-md-12">
-                            <div class="profile_title ">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="profile_title ">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
+                                        <h6>Penugasan Luar Struktur</h6>
+                                        <a class="btn btn-secondary btn-sm" href="{{ route('profile.penugasan')}}"><i class="fa fa-pencil"></i></a>
+                                    </div>
+                                </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <h6>Penugasan Luar Struktur</h6>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Penugasan</th>
+                                                <th>Lokasi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($penugasan_luar as $penugasan )
+                                            <tr>
+                                                <td>{{$penugasan->penugasan}}</td>
+                                                <td>{{$penugasan->lokasi}}</td>
+                                            </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="profile_title ">
+                                    <div class="col-md-12 col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
+                                        <h6>Pendidikan Pengenmbangan dan Pelatihan</h6>
+                                        <a class="btn btn-secondary btn-sm" href="{{ route('pelatihan.show')}}"><i class="fa fa-pencil"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>DIKBANG</th>
+                                                <th>TMT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                @foreach ($pelatihan as $pelatihans )
+                                                <td>{{$pelatihans->dikbang}}</td>
+                                                <td>{{$pelatihans->tmt}}</td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

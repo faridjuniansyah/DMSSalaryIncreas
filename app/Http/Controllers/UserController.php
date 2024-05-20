@@ -51,7 +51,8 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'roles' => 'required'
+            'roles' => 'required',
+            'nrp' => 'required'
         ]);
 
         $input = $request->all();

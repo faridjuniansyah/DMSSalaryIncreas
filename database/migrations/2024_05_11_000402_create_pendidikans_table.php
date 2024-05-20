@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('tingkat');
             $table->string('tahun');
-            $table->string('nama_institusi');
             $table->bigInteger('personels_id')->unsigned();
 
             $table->foreign('personels_id')->references('id')->on('personels')->onDelete('cascade');

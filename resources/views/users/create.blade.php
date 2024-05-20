@@ -61,6 +61,16 @@
                             </div>
                         </div>
                         <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nrp">NRP <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="nrp" class="form-control @error('nrp') is-invalid @enderror" id="nrp" name="nrp" value="{{ old('nrp') }}">
+                                @if ($errors->has('nrp'))
+                                <span class="text-danger">{{ $errors->first('nrp') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">

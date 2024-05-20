@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('personels', function (Blueprint $table) {
-            $table->bigInteger('nrp')->nullable();
+        Schema::create('gajis', function (Blueprint $table) {
+            $table->id();
+            $table->string('golongan');
+            $table->string('jumlah');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('personels', function (Blueprint $table) {
-            $table->bigInteger('nrp')->nullable();
-        });
+        Schema::dropIfExists('gajis');
     }
 };

@@ -16,7 +16,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Penugasan Luar<small></small></h3>
+            <h3>Pengembangan Pelatihan<small></small></h3>
         </div>
 
         <div class="title_right">
@@ -37,7 +37,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Penugasan Luar <small></small></h2>
+                    <h2>Form Pengembangan Pelatihan <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -47,18 +47,18 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('penugasan.update')}}">
+                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('pelatihan.update')}}">
                             @csrf
                                 <div class="input_dinamis col-md-12 col-sm-12">
-                                    @forelse ($penugasan as $value )
+                                    @forelse ($pelatihan as $pelatihans )
                                     <div class="col-sm-12">
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tanda_kehormatan">Penugasan :</label>
-                                            <input type="text" id="penugasan" class="form-control" name="penugasan[]" value="{{$value->penugasan}}" required />
+                                            <label for="tanda_kehormatan">Dikbang :</label>
+                                            <input type="text" id="dikbang" class="form-control" name="dikbang[]" value="{{$pelatihans->dikbang}}" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tmt">Lokasi :</label>
-                                            <input type="text" id="lokasi" class="form-control" name="lokasi[]" value="{{$value->lokasi}}" required />
+                                            <label for="tmt">TMT :</label>
+                                            <input type="text" id="tmt" class="form-control" name="tmt[]" value="{{$pelatihans->tmt}}" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
@@ -68,12 +68,12 @@
                                     @empty
                                     <div class="col-sm-12">
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tanda_kehormatan">Penugasan :</label>
-                                            <input type="text" id="penugasan" class="form-control" name="penugasan[]" required />
+                                            <label for="dikbang">Dikbang :</label>
+                                            <input type="text" id="dikbang" class="form-control" name="dikbang[]" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="lokasi">Lokasi :</label>
-                                            <input type="text" id="lokasi" class="form-control" name="lokasi[]" required />
+                                            <label for="tmt">TMT :</label>
+                                            <input type="text" id="tmt" class="form-control" name="tmt[]" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
@@ -117,12 +117,12 @@
         newFormRow.innerHTML = `
             
         <div class="col-md-4 col-sm-4">
-            <label for="penugasan">Penugasan :</label>
-            <input type="text" id="penugasan" class="form-control" name="penugasan[]" required />
+            <label for="dikbang">Dikbang :</label>
+            <input type="text" id="dikbang" class="form-control" name="dikbang[]" required />
         </div>
         <div class="col-md-4 col-sm-4">
-            <label for="tmt">Lokasi :</label>
-            <input type="text" id="lokasi" class="form-control" name="lokasi[]" required />
+            <label for="tmt">TMT :</label>
+            <input type="text" id="tmt" class="form-control" name="tmt[]" required />
         </div>
         <div class="col-md-3 col-sm-3 mt-4">
             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i></button>

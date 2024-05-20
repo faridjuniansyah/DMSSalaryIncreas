@@ -16,7 +16,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Pendidikan Kepolisian<small></small></h3>
+            <h3>Pendidikan<small></small></h3>
         </div>
 
         <div class="title_right">
@@ -37,7 +37,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Pendidikan Kepolisian<small></small></h2>
+                    <h2>Form Pedidikan <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -47,35 +47,44 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('pendidikan.update')}}">
+                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('personel.bio.update')}}">
                                 @csrf
+
                                 <div class="input_dinamis col-md-12 col-sm-12">
-                                    @forelse ($pendidikan as $pendidikans )
+                                    @forelse ($bio as $bios )
                                     <div class="col-sm-12">
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-3 col-sm-3">
                                             <label for="fullname">Tingkat :</label>
-                                            <input type="text" id="tingkat" class="form-control" name="tingkat[]" value="{{$pendidikans->tingkat}}" required />
+                                            <input type="text" id="tingkat" class="form-control" name="tingkat[]" value="{{$bios->tingkat}}" required />
                                         </div>
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="fullname">Nama Institusi :</label>
+                                            <input type="text" id="nama" class="form-control" name="nama[]" value="{{$bios->nama}}" required />
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
                                             <label for="fullname">Tahun Lulus :</label>
-                                            <input type="text" id="tahun" class="form-control" name="tahun[]" value="{{$pendidikans->tahun}}" required />
+                                            <input type="text" id="tahun" class="form-control" name="tahun[]" value="{{$bios->tahun}}" required />
                                         </div>
-                                        <div class="col-md-4 col-sm-4 mt-4">
+                                        <div class="col-md-3 col-sm-3 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
                                             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
                                         </div>
                                     </div>
                                     @empty
                                     <div class="col-sm-12">
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-3 col-sm-3">
                                             <label for="tingkat">Tingkat:</label>
                                             <input type="text" class="form-control" name="tingkat[]" required>
                                         </div>
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="nama_institusi">Nama Institusi:</label>
+                                            <input type="text" class="form-control" name="nama[]" required>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
                                             <label for="tahun">Tahun Lulus:</label>
                                             <input type="text" class="form-control" name="tahun[]" required>
                                         </div>
-                                        <div class="col-md-4 col-sm-4 mt-4">
+                                        <div class="col-md-3 col-sm-3 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
                                             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
                                         </div>
@@ -114,15 +123,19 @@
 
         // Isi elemen div baru dengan input yang sama seperti sebelumnya
         newFormRow.innerHTML = `
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-3 col-sm-3">
                 <label for="tingkat[]">Tingkat :</label>
                 <input type="text" class="form-control" name="tingkat[]" required />
             </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-3 col-sm-3">
+                <label for="institusi">Nama Institusi :</label>
+                <input type="text" class="form-control" name="nama[]" required />
+            </div>
+            <div class="col-md-3 col-sm-3">
                 <label for="tahun">Tahun Lulus :</label>
                 <input type="text" class="form-control" name="tahun[]" required />
             </div>
-            <div class="col-md-4 col-sm-4 mt-4">
+            <div class="col-md-3 col-sm-3 mt-4">
                 <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i> </button>
             </div>
         `;

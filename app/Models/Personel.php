@@ -26,13 +26,24 @@ class Personel extends Model
 
     public function personelBio()
     {
-        return $this->hasOne(PersonelBio::class, 'personels_id');
+        return $this->hasMany(PersonelBio::class, 'personels_id');
     }
 
     public function kemampuan_bahasa()
     {
         return $this->hasMany(KemampuanBahasa::class, 'personels_id');
     }
+    public function penugasan_luar()
+    {
+        return $this->hasMany(PenugasanLuar::class, 'personels_id');
+    }
+
+    public function pengembangan_pelatihan()
+    {
+        return $this->hasMany(PengembanganPelatihan::class, 'personels_id');
+    }
+
+    
 
 
 }

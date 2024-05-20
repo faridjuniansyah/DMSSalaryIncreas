@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <label for="fullname">NRP * :</label>
-                                        <input type="text" id="nrp" class="form-control" name="nrp" value="{{$personel->nrp}}" required />
+                                        <input type="text" id="nrp" class="form-control" name="nrp" value="{{$user->nrp}}" required />
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <label for="fullname">Status * :</label>
@@ -108,12 +108,25 @@
                                             <option value="Tidak Aktif" {{ $personel->status == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="fullname">Penugasan * :</label>
+                                        <select name="penugasan" class="form-control" required>
+                                            <option value="">Choose..</option>
+                                            <option value="POLDA" {{ $personel->penugasan == 'POLDA' ? 'selected' : '' }}>POLDA</option>
+                                            <option value="POLRES" {{ $personel->penugasan == 'POLRES' ? 'selected' : '' }}>POLRES</option>
+                                            <option value="POLSEK" {{ $personel->penugasan == 'POLSEK' ? 'selected' : '' }}>POLSEK</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label for="fullname">Tempat Penugasan * :</label>
+                                        <input type="text" id="tempat_penugasan" class="form-control" name="tempat_penugasan" value="{{$personel->tempat_penugasan}}" required />
+                                    </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12">
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 offset-md-3">
-                                            <button class="btn btn-primary" type="button">Cancel</button>
+                                            <a class="btn btn-primary" href="{{route('myprofile')}}">Back</a>
                                             <!-- <button class="btn btn-primary" type="reset">Reset</button> -->
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>

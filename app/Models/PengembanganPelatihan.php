@@ -5,17 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PersonelBio extends Model
+class PengembanganPelatihan extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'nama',
-        'tingkat',
-        'tahun',
-        'personels_id',
-    ];
-    public function user()
+    public function personel()
     {
         return $this->belongsTo(Personel::class, 'personels_id');
     }

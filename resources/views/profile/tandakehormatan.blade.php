@@ -16,7 +16,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Penugasan Luar<small></small></h3>
+            <h3>Tanda Kehormatan<small></small></h3>
         </div>
 
         <div class="title_right">
@@ -37,7 +37,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Penugasan Luar <small></small></h2>
+                    <h2>Form Tanda Kehormatan <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -47,18 +47,18 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('penugasan.update')}}">
-                            @csrf
+                            <form class="form-horizontal form-label-left" method="POST" action="{{ route('tandakehormatan.update')}}">
+                                @csrf
                                 <div class="input_dinamis col-md-12 col-sm-12">
-                                    @forelse ($penugasan as $value )
+                                    @forelse ($tanda_kehormatan as $tanda )
                                     <div class="col-sm-12">
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tanda_kehormatan">Penugasan :</label>
-                                            <input type="text" id="penugasan" class="form-control" name="penugasan[]" value="{{$value->penugasan}}" required />
+                                            <label for="tanda_kehormatan">Tanda Kehormatan :</label>
+                                            <input type="text" id="tanda_kehormatan" class="form-control" name="tanda_kehormatan[]" value="{{$tanda->tanda_kehormatan}}" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tmt">Lokasi :</label>
-                                            <input type="text" id="lokasi" class="form-control" name="lokasi[]" value="{{$value->lokasi}}" required />
+                                            <label for="tmt">TMT :</label>
+                                            <input type="text" id="tmt" class="form-control" name="tmt[]" value="{{$tanda->tmt}}" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
@@ -68,12 +68,12 @@
                                     @empty
                                     <div class="col-sm-12">
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="tanda_kehormatan">Penugasan :</label>
-                                            <input type="text" id="penugasan" class="form-control" name="penugasan[]" required />
+                                            <label for="tanda_kehormatan">Tanda Kehormatan :</label>
+                                            <input type="text" id="tanda_kehormatan" class="form-control" name="tanda_kehormatan[]" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4">
-                                            <label for="lokasi">Lokasi :</label>
-                                            <input type="text" id="lokasi" class="form-control" name="lokasi[]" required />
+                                            <label for="tmt">TMT :</label>
+                                            <input type="text" id="tmt" class="form-control" name="tmt[]" required />
                                         </div>
                                         <div class="col-md-4 col-sm-4 mt-4">
                                             <button class="btn btn-success" onclick="addFormInput()"><i class="fa fa-plus"></i> Add</button>
@@ -85,8 +85,7 @@
                                 <div class="col-sm-12 col-md-12">
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
-                                        <div class="col-md-6 col-sm-6 offset-md-3">                                            
-                                            <!-- <button class="btn btn-primary" type="reset">Reset</button> -->
+                                        <div class="col-md-6 col-sm-6 offset-md-3">
                                             <a class="btn btn-primary" href="{{route('myprofile')}}">Back</a>
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
@@ -117,12 +116,12 @@
         newFormRow.innerHTML = `
             
         <div class="col-md-4 col-sm-4">
-            <label for="penugasan">Penugasan :</label>
-            <input type="text" id="penugasan" class="form-control" name="penugasan[]" required />
+            <label for="tanda_kehormatan">Tanda Kehormatan :</label>
+            <input type="text" id="tanda_kehormatan" class="form-control" name="tanda_kehormatan[]" required />
         </div>
         <div class="col-md-4 col-sm-4">
-            <label for="tmt">Lokasi :</label>
-            <input type="text" id="lokasi" class="form-control" name="lokasi[]" required />
+            <label for="tmt">TMT :</label>
+            <input type="text" id="tmt" class="form-control" name="tmt[]" required />
         </div>
         <div class="col-md-3 col-sm-3 mt-4">
             <button class="btn btn-danger" onclick="removeFormInput(this)"><i class="fa fa-close"></i></button>
@@ -141,5 +140,22 @@
         formRowToRemove.remove();
     }
 </script>
+
+<!-- Datatables -->
+<script src="{{url('assets/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+<script src="{{url('assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+<script src="{{url('assets/vendors/jszip/dist/jszip.min.js')}}"></script>
+<script src="{{url('assets/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{url('assets/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 
 @endsection

@@ -49,7 +49,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRoleRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $role = Role::create(['name' => $request->name]);
 
